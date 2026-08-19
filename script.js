@@ -3,9 +3,13 @@ const cases = document.querySelectorAll('.case-content');
 
 tabs.forEach((tab) => {
   tab.addEventListener('click', () => {
-    tabs.forEach((item) => item.classList.remove('active'));
+    tabs.forEach((item) => {
+      item.classList.remove('active');
+      item.setAttribute('aria-selected', 'false');
+    });
     cases.forEach((item) => item.classList.remove('active'));
     tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
     document.getElementById(tab.dataset.case).classList.add('active');
   });
 });
